@@ -15,8 +15,8 @@ function SalesCard() {
     const [maxDate, setMaxDate] = useState(max);
 
     const [sales, setSales] = useState<Sale[]>([]);
-    
-    
+
+
     useEffect(() => {
 
         const dmin = minDate.toISOString().slice(0, 10);
@@ -66,7 +66,7 @@ function SalesCard() {
                         </tr>
                     </thead>
                     <tbody>
-                        {sales.map(sale => { 
+                        {sales.map(sale => {
                             return (
                                 <tr key={sale.id}>
                                     <td className="show992">{sale.id}</td>
@@ -74,10 +74,10 @@ function SalesCard() {
                                     <td>{sale.sellerName}</td>
                                     <td className="show992">{sale.visited}</td>
                                     <td className="show992">{sale.deals}</td>
-                                    <td>{sale.amount.toFixed(2)}</td>
+                                    <td>R$ {sale.amount.toFixed(2)}</td>
                                     <td>
                                         <div className="dsmeta-red-btn-container">
-                                            <NotificationButton />
+                                            <NotificationButton saleId={sale.id} />
                                         </div>
                                     </td>
                                 </tr>
